@@ -1,0 +1,38 @@
+<% provide(:title, 'Show Review ')  %>
+
+<p id="notice"><%= notice %></p>
+  <br>
+<br>
+<p>
+  <b>Reviewer:</b>
+  <%= @review.reviewer %>
+</p>
+
+<p>
+  <b>Reviewed Date:</b>
+  <%= @review.updated_at.to_date.to_formatted_s :long_ordinal %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%= @review.review %>
+</p>
+
+<p>
+  <b>Recommend:</b>
+  <%= ret_yes_no(@review.recommend) %>
+</p>
+
+<p>
+  <b>Book:</b>
+ <%= link_to @review.book.name , :controller => "books", :action => "show", :id => @review.book_id  %>
+</p>
+
+<p>
+  <b>Review helpful:</b>
+  <%= ret_yes_no(@review.review_helpful) %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

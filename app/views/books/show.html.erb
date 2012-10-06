@@ -1,0 +1,51 @@
+<% provide(:title, ' Show Book Details')  %>
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Name:</b>
+  <%= @book.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @book.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @book.price %>
+</p>
+
+<p>
+  <b>Editor review:</b>
+  <%= @book.editor_review %>
+</p>
+
+<p>
+  <b>Publisher:</b>
+  <%= @book.publisher %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @book.language %>
+</p>
+
+<p>
+  <b>Ebook:</b>
+  <%= @book.ebook %>
+</p>
+
+<p>
+  <b>Seller:</b>
+  <%= @book.seller %>
+</p>
+
+<p>
+  <b>File size:</b>
+  <%= @book.file_size %>
+</p>
+
+<%= link_to( "Add Reviews", { :controller => "reviews", :action => "new", :book_id =>@book.id }) %> |
+<%= link_to_if(@book.reviews.exists?, "See Reviews", { :controller => "reviews", :action => "index", :book_id =>@book.id }) %> |
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

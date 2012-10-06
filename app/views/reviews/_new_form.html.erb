@@ -1,0 +1,44 @@
+<% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<%= form_for (@review )  do |f| %>
+
+    <div class="field">
+      <%= f.label :reviewer %>
+      <br/>
+      <%= f.text_field :reviewer %>
+    </div>
+    <div class="field">
+      <%= f.label :review %>
+      <br/>
+      <%= f.text_area :review %>
+    </div>
+    <div class="field">
+      <%= f.label :recommend %>
+      <br/>
+      <%= f.check_box :recommend %>
+    </div>
+        <div class="field">
+          <%= f.label :book %>
+          <br/>
+          <%= select("review", "book_id", Book.all.collect {|p| [ p.name, p.id ] }, { :include_blank => false })%>
+        </div>
+    <div class="field">
+      <%= f.label :review_helpful %>
+      <br/>
+      <%= f.check_box :review_helpful %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+
+<% end %>

@@ -1,0 +1,79 @@
+
+<div class="row">
+  <%= form_for(@book, :remote => true) do |f| %>
+      <% if @book.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@book.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+              <% @book.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <% if @action == 'new' %>
+      <div class="span8">
+        <%= f.label :name %>
+        <br/>
+        <%= f.text_field :name %>
+      </div>
+          <% else %>
+          <div class="span8"  >
+            <%= f.label :name %>
+            <br/>
+            <%= f.text_field :name , :readonly => true%>
+          </div>
+          <% end %>
+      <div class="span8">
+        <%= f.label :description %>
+        <br/>
+        <%= f.text_field :description %>
+      </div>
+      <div class="span8">
+        <%= f.label :price %>
+        <br/>
+        <%= f.text_field :price%>
+      </div>
+      <div class="span8">
+        <%= f.label :editor_review %>
+        <br/>
+        <%= f.text_area :editor_review %>
+      </div>
+      <div class="span8">
+        <%= f.label :publisher %>
+        <br/>
+        <%= f.text_field :publisher %>
+      </div>
+      <div class="span8">
+        <%= f.label :language %>
+        <br/>
+        <%= f.text_field :language %>
+      </div>
+      <div class="span8">
+        <%= f.label :ebook %>
+        <%= f.check_box :ebook %>
+      </div>
+      <div class="span8">
+        <%= f.label :seller %>
+        <%= f.text_field :seller %>
+      </div>
+      <div class="span8">
+        <%= f.label :file_size %>
+        <br/>
+        <%= f.text_field :file_size %>
+      </div>
+      <% if @action == 'new' %>
+          <div class="span8">
+            <%= f.submit 'Add Book', class: 'btn btn-large' %>
+          </div>
+      <% else %>
+          <div class="span8">
+            <%= f.submit 'Update Book', class: 'btn btn-large' %>
+          </div>
+      <% end %>
+
+  <% end %>
+
+
+</div>

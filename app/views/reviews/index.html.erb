@@ -1,0 +1,33 @@
+<% provide(:title, 'Review List')  %>
+<h1>Listing reviews</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Review</th>
+    <th>Reviewer</th>
+    <th>Recommend</th>
+    <th>Book</th>
+    <th>Review helpful</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= link_to(review) do %><strong><%= review.review %></strong><% end %></td>
+    <td><%= review.reviewer %></td>
+    <td><%= ret_yes_no(review.recommend) %></td>
+    <td ><%= review.book.name %></td>
+    <td hidden="true"><%= review.book.id %></td>
+    <td><%= ret_yes_no(review.review_helpful)%></td>
+    <td><%= link_to(edit_review_path(review)) do %><strong><%= "Modify this Review " %></strong><% end %></td>
+    <td><%= link_to(review, method: :delete, data: { confirm: 'Are you sure?' }) do %><strong><%= "Delete this review" %></strong><% end %></td>
+  </tr>
+<% end %>
+</table>
+
+</br>
+<%= link_to(new_review_path ) do %>
+    <strong><%= "New Review" %></strong>
+<% end %>
