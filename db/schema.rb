@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006045559) do
+ActiveRecord::Schema.define(:version => 20121006074334) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.float    "price"
+    t.decimal  "price"
     t.text     "editor_review"
     t.string   "publisher"
     t.string   "language"
     t.boolean  "ebook"
     t.string   "seller"
-    t.string   "file_size"
+    t.decimal  "file_size"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

@@ -5,13 +5,13 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Price</th>
+    <th>Price in USD</th>
     <th>Editor review</th>
     <th>Publisher</th>
     <th>Language</th>
     <th>Ebook</th>
     <th>Seller</th>
-    <th>File size</th>
+    <th>File size in MB</th>
     <th>Reviews</th>
     <th></th>
     <th></th>
@@ -21,13 +21,13 @@
   <tr>
     <td><%= link_to book.name, book %></td>
     <td><%= book.description %></td>
-    <td><%= book.price %></td>
+    <td><%= number_with_precision book.price, :precision => 2  %></td>
     <td><%= book.editor_review %></td>
     <td><%= book.publisher %></td>
     <td><%= book.language %></td>
     <td><%= book.ebook %></td>
     <td><%= book.seller %></td>
-    <td><%= book.file_size %></td>
+    <td><%= number_with_precision book.file_size, :precision => 2  %></td>
     <td><%= link_to_if(book.reviews.exists?, "Review", { :controller => "reviews", :action => "index", :book_id =>book.id }) %> </td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

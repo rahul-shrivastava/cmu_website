@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <b>Price:</b>
-  <%= @book.price %>
+  <b>Price in USD:</b>
+  <%= number_with_precision @book.price, :precision => 2  %>
 </p>
 
 <p>
@@ -41,8 +41,8 @@
 </p>
 
 <p>
-  <b>File size:</b>
-  <%= @book.file_size %>
+  <b>File size in MB:</b>
+  <%= number_with_precision @book.file_size, :precision => 2 %>
 </p>
 
 <%= link_to( "Add Reviews", { :controller => "reviews", :action => "new", :book_id =>@book.id }) %> |

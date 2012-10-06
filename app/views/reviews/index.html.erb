@@ -4,7 +4,7 @@
 <table class="table table-bordered">
   <tr>
     <th>Review</th>
-    <th>Reviewer</th>
+    <th>Review</th>
     <th>Recommend</th>
     <th>Book</th>
     <th>Review helpful</th>
@@ -21,8 +21,8 @@
     <td ><%= review.book.name %></td>
     <td hidden="true"><%= review.book.id %></td>
     <td><%= ret_yes_no(review.review_helpful)%></td>
-    <td><%= link_to(edit_review_path(review)) do %><strong><%= "Modify this Review " %></strong><% end %></td>
-    <td><%= link_to(review, method: :delete, data: { confirm: 'Are you sure?' }) do %><strong><%= "Delete this review" %></strong><% end %></td>
+    <td><%= link_to(edit_review_path(review)) do %><strong><%= "Modify the review" %></strong><% end %></td>
+    <td><%= link_to(review, method: :delete, data: { confirm: 'Are you sure?' }) do %><strong><%= "Destroy" %></strong><% end %></td>
   </tr>
 <% end %>
 </table>

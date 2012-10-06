@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+
   attr_accessible :description, :ebook, :editor_review, :file_size, :language, :name, :price, :publisher, :seller
   has_many :reviews
   validates_presence_of :ebook,  :language, :name, :price, :publisher, :seller
@@ -8,5 +9,6 @@ class Book < ActiveRecord::Base
   validates :name, :length => { :minimum => 2 }
   validates :description, :length => { :minimum => 2 , :maximum => 150}
   validates :price , :numericality => { :greater_than => 0.0 }
+
 
 end

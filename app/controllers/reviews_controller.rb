@@ -85,9 +85,8 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-
     respond_to do |format|
-      format.html { redirect_to reviews_url }
+      format.html { redirect_to reviews_url, :book_id =>params[:book_id]  }
       format.json { head :no_content }
     end
   end
